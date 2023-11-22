@@ -25,22 +25,24 @@ var colunasAtuais = [];
 
 document.getElementById('corJogador1').addEventListener('input', mudarCor1);
 document.getElementById('corJogador2').addEventListener('input', mudarCor2);
+let cor1;
+let cor2;
 
 function mudarCor1 () {
-    let cor = document.getElementById('corJogador1').value;
+    cor1 = document.getElementById('corJogador1').value;
     let bolinhas = document.querySelectorAll(".peca-vermelha");
     for (let i = 0; i < bolinhas.length; i++ )
     {
-        bolinhas[i].style.backgroundColor = cor;
+        bolinhas[i].style.backgroundColor = cor1;
     }
 }
 
 function mudarCor2 () {
-    let cor = document.getElementById('corJogador2').value;
+    cor2 = document.getElementById('corJogador2').value;
     let bolinhas = document.querySelectorAll(".peca-amarela");
     for (let i = 0; i < bolinhas.length; i++ )
     {
-        bolinhas[i].style.backgroundColor = cor;
+        bolinhas[i].style.backgroundColor = cor2;
     }
 }
 
@@ -89,12 +91,14 @@ function colocarPeca() {
     let celula = document.getElementById(r.toString() + "-" + c.toString());
     if (jogadorAtual == jogadorVermelho) {
         celula.classList.add("peca-vermelha");
+        celula.style.backgroundColor = cor1;
         jogadorAtual = jogadorAmarelo;
         jogadorDaVez.innerHTML = "Vez do: Jogador 2";
     }
     else {
         celula.classList.add("peca-amarela");
         jogadorAtual = jogadorVermelho;
+        celula.style.backgroundColor = cor2;
         jogadorDaVez.innerHTML = "Vez do: Jogador 1";
     }
 
