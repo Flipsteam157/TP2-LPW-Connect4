@@ -61,16 +61,14 @@ body {
     height: 540px;
     width: 630px;
     background-color: blue;
-    border: 10px solid navy;
-    
-    margin: 0 auto;
+    border: 10px solid navy;   
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
 }
-
 .celula {
-    height: 70px;
-    width: 70px;
+    height: 77px;
+    width: 77px;
     margin: 5px;
 
     /* Círculo */
@@ -78,6 +76,31 @@ body {
     border-radius: 50%;
     border: 5px solid navy;
 }
+@media (max-width: 650px)
+{
+  #tabuleiro {
+    height: 258px;
+    width: 300px;
+    background-color: blue;
+    border: 10px solid navy;   
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+.celula {
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+
+    /* Círculo */
+    background-color: white;
+    border-radius: 50%;
+    border: 5px solid navy;
+}
+}
+
+
+
 
 .peca-vermelha {
     background-color: red;
@@ -85,4 +108,9 @@ body {
 
 .peca-amarela {
     background-color: yellow;
+}
+
+
+#meuSom{
+  display: none;
 }
