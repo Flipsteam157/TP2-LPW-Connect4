@@ -265,7 +265,8 @@ function concluirLogin() {
 
     if (player1LoggedIn && player2LoggedIn) {
         alert('Ambos os jogadores fizeram login com sucesso. Agora você pode prosseguir.');
-        document.getElementById("drake").innerHTML += `<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>`;
+        document.getElementById("drake").innerHTML = `<button type="button" class="btn btn-primary" onclick="concluirLogin()">Concluir</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>`;
         jogador1 = username1;
         jogador2 = username2;
         if (jogadorAtual == jogadorVermelho) {

@@ -90,11 +90,17 @@ h2
 }
 @media (max-width: 650px)
 {
+  body{
+    position: relative;
+    top: 270px;
+  }
+
   #tabuleiro {
     height: 258px;
     width: 300px;
-    background-color: blue;
-    border: 10px solid navy;   
+    background-color: #1f2d3a;
+    border-radius: 1%;
+    border: 10px solid #3d6868;   
     margin: auto;
     display: flex;
     flex-wrap: wrap;
@@ -105,9 +111,9 @@ h2
     margin: 5px;
 
     /* Círculo */
-    background-color: white;
+    background-color: rgba(228, 228, 228, 0.795);
     border-radius: 50%;
-    border: 5px solid navy;
+    border: 5px solid #3d6868;
 }
 }
 
