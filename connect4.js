@@ -172,9 +172,9 @@ function verificarVencedor() {
 function definirVencedor(r, c) {
     let vencedor = document.getElementById("vencedor");
     if (tabuleiro[r][c] == jogadorVermelho) {
-        vencedor.innerText = `${jogador1} Venceu`;
+        vencedor.innerText = `${jogador1} venceu`;
     } else {
-        vencedor.innerText = `${jogador2} Venceu`;
+        vencedor.innerText = `${jogador2} venceu`;
     }
     jogoEncerrado = true;
 }
@@ -265,7 +265,6 @@ function concluirLogin() {
 
     if (player1LoggedIn && player2LoggedIn) {
         alert('Ambos os jogadores fizeram login com sucesso. Agora você pode prosseguir.');
-        document.getElementById("uncharted").innerHTML += `<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>`;
         document.getElementById("drake").innerHTML += `<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>`;
         jogador1 = username1;
         jogador2 = username2;
@@ -295,4 +294,37 @@ cheet('↑ ↑ ↓ ↓ ← → ← → b a', function () {
         modowhatzap = 0;
         window.alert("Modo WhatsApp desativado :(");
     }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const menuBtn = document.querySelector('.menu-btn');
+    const sidebar = document.querySelector('.sidebar');
+
+    menuBtn.addEventListener('click', function () {
+        menuBtn.style.left = menuBtn.style.left == '260px' ? '10px' : '260px';
+        menuBtn.innerHTML = menuBtn.innerHTML === "&lt;" ? "&gt;" : "&lt;";
+        sidebar.style.width = sidebar.style.width === '250px' ? '0' : '250px';
+        
+        
+    });
 });
