@@ -5,6 +5,8 @@ let jogador1 = "Jogador 1";
 let jogador2 = "Jogador 2";
 let modowhatzap = 0;
 var somEasteregg = document.getElementById("meuSom");
+let placarJogador1 = 0;
+let placarJogador2 = 0;
 
 
 
@@ -40,6 +42,7 @@ function mudarCor1() {
     for (let i = 0; i < bolinhas.length; i++) {
         bolinhas[i].style.backgroundColor = cor1;
     }
+    document.getElementById("claro").style.backgroundColor = cor1;
 }
 
 function mudarCor2() {
@@ -48,6 +51,7 @@ function mudarCor2() {
     for (let i = 0; i < bolinhas.length; i++) {
         bolinhas[i].style.backgroundColor = cor2;
     }
+    document.getElementById("quenao").style.backgroundColor = cor2;
 }
 
 
@@ -173,8 +177,12 @@ function definirVencedor(r, c) {
     let vencedor = document.getElementById("vencedor");
     if (tabuleiro[r][c] == jogadorVermelho) {
         vencedor.innerText = `${jogador1} venceu`;
+        placarJogador1++;
+        document.getElementById("claro").innerHTML = `<p>${jogador1} - ${placarJogador1} vitória(s)</p>`;
     } else {
         vencedor.innerText = `${jogador2} venceu`;
+        placarJogador2++;
+        document.getElementById("quenao").innerHTML = `<p>${jogador2} - ${placarJogador2} vitória(s)</p>`;
     }
     jogoEncerrado = true;
 }
@@ -278,6 +286,8 @@ function concluirLogin() {
 
         document.getElementById("nathan").innerHTML = `Escolha uma cor para o ${jogador1}:`;
         document.getElementById("nate").innerHTML = `Escolha uma cor para o ${jogador2}:`;
+        document.getElementById("claro").innerHTML = `<p>${jogador1}</p>`;
+        document.getElementById("quenao").innerHTML = `<p>${jogador2}</p>`;
 
     } else {
         alert('Alguns jogadores não fizeram login com sucesso. Verifique os dados e tente novamente.');
