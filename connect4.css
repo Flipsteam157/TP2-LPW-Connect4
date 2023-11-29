@@ -134,6 +134,28 @@ h2
 }
 
 
+#configsModal
+{
+  font-size: 0.8em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#configsModal *
+{
+  margin: 10px;
+}
+
+#sobre
+{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+
+
 
 
 

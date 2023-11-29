@@ -329,3 +329,97 @@ document.addEventListener('DOMContentLoaded', function () {
         
     });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.getElementById('downloadButton').addEventListener('click', salvarLocalStorageComoJSON);
+function salvarLocalStorageComoJSON() {
+    // Obter dados do localStorage
+    var dados = localStorage.getItem('jogadores');
+
+    // Verificar se há dados a serem salvos
+    if (dados) {
+        // Criar um Blob com os dados JSON
+        var blob = new Blob([dados], { type: 'application/json' });
+
+        // Criar um link para download
+        var link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+
+        // Definir o nome do arquivo (pode ser personalizado)
+        link.download = 'meusDados.json';
+
+        // Adicionar o link ao documento e acionar o clique para iniciar o download
+        document.body.appendChild(link);
+        link.click();
+
+        // Remover o link do documento
+        document.body.removeChild(link);
+    } else {
+        console.log('Nenhum dado no localStorage para salvar.');
+    }
+}
+
+
+document.getElementById('fileInput').addEventListener('change', function() {
+    carregarDadosDoArquivo(this);
+});
+
+function carregarDadosDoArquivo(inputFile) {
+    var file = inputFile.files[0];
+
+    if (file) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            // Obter dados do arquivo
+            var dadosDoArquivo = e.target.result;
+
+            try {
+                // Parse os dados JSON
+                var jsonData = JSON.parse(dadosDoArquivo);
+
+                // Salvar os dados no localStorage
+                localStorage.setItem('jogadores', JSON.stringify(jsonData));
+
+                console.log('Dados carregados do arquivo e salvos no localStorage:', jsonData);
+            } catch (error) {
+                console.error('Erro ao analisar o arquivo JSON:', error);
+            }
+        };
+
+        // Ler o conteúdo do arquivo como texto
+        reader.readAsText(file);
+    }
+}
+
+function carregarDadosDoGitHubESalvarNoLocalStorage() {
+    $.ajax({
+        type: 'GET',
+        url: 'https://raw.githubusercontent.com/Flipsteam157/TP2-LPW-Connect4/main/meusDados.json',
+        dataType: 'json',
+        success: function (resposta) {
+            // Salvar os dados no localStorage
+            localStorage.setItem('jogadores', JSON.stringify(resposta));
+
+            console.log('Dados carregados do GitHub e salvos no localStorage:', resposta);
+        },
+        error: function (xhr, status, error) {
+            console.error('Erro ao carregar dados do GitHub:', status, error);
+        }
+    });
+}
