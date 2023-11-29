@@ -263,3 +263,24 @@ h2
 .sidebar a:hover {
   color: #f1f1f1;
 }
+
+
+#placar {
+  display: flex;
+  justify-content: center;
+}
+
+#placar p{
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+#claro {
+  background-color: red;
+  border: 2px solid black; 
+}
+
+#quenao {
+  background-color: yellow;
+  border: 2px solid black;
+}
